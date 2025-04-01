@@ -1,0 +1,13 @@
+3. Leer IPs desde un Archivo Compartido
+Si alguien administra las IPs en un archivo de texto o Excel en una ubicación compartida, puedes leerlas automáticamente:
+
+python
+Copiar
+Editar
+import pandas as pd
+
+def obtener_ips_desde_excel():
+    df = pd.read_excel("servidores.xlsx")  # Archivo con columna "IP"
+    return df["IP"].tolist()
+
+servidores = [{"host": ip, "database": "mi_base", "user": "usuario", "password": "clave"} for ip in obtener_ips_desde_excel()]
